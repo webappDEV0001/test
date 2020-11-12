@@ -5,6 +5,6 @@ from home.models import Counter
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        counter, created = Counter.objects.get_or_create(id=1)
+        counter, created = Counter.objects.get_or_create(pk=1)
         counter.number = 2
         counter.save()

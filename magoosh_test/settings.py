@@ -13,6 +13,8 @@ import os
 import environ
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ff2xgu0&1&b^s$w=_hela-gbfcg__649tmo!b5jvux@9oge3a&'
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -50,9 +52,14 @@ LOCAL_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'django_crontab',
 ]
 
 INSTALLED_APPS += THIRD_PARTY_APPS + LOCAL_APPS
+
+CRONJOBS = [
+    ('0 16 * * 0', 'home.cron.cron_reset_data')
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -65,6 +72,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'magoosh_test.urls'
+
+# Django CORS headers
+INSTALLED_APPS += ['corsheaders']
+MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware'] + MIDDLEWARE
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
