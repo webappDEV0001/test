@@ -12,11 +12,10 @@ This is a repository for both of backend and frontend of web application develop
 2. [Python](https://www.python.org/downloads/release/python-3.7/)
 
 ### Installation For Backend
-1. Install [pipenv](https://pypi.org/project/pipenv/)
-2. Clone this repo and `cd magoosh_test`
-3. Run `pip install -r requirements.txt` to install the environments
-4. Run `cp .env.example .env`
-5. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql. 
+1. Clone this repo and `cd magoosh_test`
+2. Run `pip install -r requirements.txt` to install the environments
+3. Run `cp .env.example .env`
+4. Update .env file `DATABASE_URL` with your `database_name`, `database_user`, `database_password`, if you use postgresql. 
     Can alternatively set it to `sqlite:////tmp/my-tmp-sqlite.db`, if you want to use sqlite for local development.
 
 
