@@ -31,5 +31,5 @@ This is a repository for both of backend and frontend of web application develop
 2. Run `npm install`
 3. Run `ng serve`
 
-### Reference
+### Note
 The project would be complex than you expected, because I followed the best practice for building Rest API with Django / DRF, frontend with Angular.
