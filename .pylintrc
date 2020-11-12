@@ -1,0 +1,20 @@
+[main]
+load-plugins=pylint_django
+ignore=migrations,node_modules
+
+[checks]
+max-line-length=120
+max-parents=15
+
+[disable]
+disable=
+    missing-class-docstring,
+    missing-function-docstring,
+    missing-module-docstring,
+    too-few-public-methods,
+    duplicate-code,
+    no-self-use,
+    C0103,
+    W0223,
+    bad-continuation,
+    no-member
